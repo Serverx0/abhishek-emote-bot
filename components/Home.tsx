@@ -605,8 +605,8 @@ export default function HomePage() {
           <p className="text-center text-zinc-400 mt-2 slide-in">
             Send emotes to your team with style ✨
           </p>
-          <p className="text-zinc-400">
-            Developed by <a href="https://wa.me/+8801964753086" target="_blank" rel="noopener noreferrer">Md Jubayer</a>
+          <p className="text-zinc-400 text-center mt-2">
+            Developed by <a className="underline text-pink-500" href="https://wa.me/+8801964753086" target="_blank" rel="noopener noreferrer">Md Jubayer</a>
           </p>
         </div>
 
