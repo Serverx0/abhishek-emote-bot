@@ -33,6 +33,7 @@ export default function HomePage() {
   );
   const [loadingEmote, setLoadingEmote] = useState<string | null>(null);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [isLagging, setIsLagging] = useState(false);
 
   // UID Popup state
   const [isUidPopupOpen, setIsUidPopupOpen] = useState(false);
@@ -296,6 +297,31 @@ export default function HomePage() {
   const clearSearch = () => {
     setSearchTerm("");
     searchInputRef.current?.focus();
+  };
+
+  const startLagging = async () => {
+    if(!teamCode) return toast.error("Please enter team code");
+    if(!server) return toast.error("Please select a server");
+    setIsLagging(true);
+    try {
+      const res = await fetch("/api/send-lag", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ team_code: teamCode, server }),
+      });
+      const data = await res.json();
+      toast.success(data.message, {
+        icon: "🎉",
+        style: {
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      setIsLagging(false);
+    } catch {
+      toast.error("Failed to start lagging");
+      setIsLagging(false);
+    }
   };
 
   // Load initial emotes
@@ -658,6 +684,13 @@ export default function HomePage() {
             />
             <span className="text-zinc-300">Auto Leave</span>
           </div>
+          <button
+            onClick={() => startLagging()}
+            disabled={isLagging}
+            className="flex items-center m-auto justify-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+          >
+            <span className="ml-2">{isLagging ? "Lagging..." : "Start Lagging"}</span>
+          </button>
         </div>
 
         {/* SEARCH SECTION */}
