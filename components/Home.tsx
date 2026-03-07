@@ -222,7 +222,7 @@ export default function HomePage() {
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
+      const {data} = await res.json();
       toast.success(data.message, {
         id: "send",
         icon: "🎉",
@@ -309,7 +309,7 @@ export default function HomePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ team_code: teamCode, server }),
       });
-      const data = await res.json();
+      const {data} = await res.json();
       toast.success(data.message, {
         icon: "🎉",
         style: {
