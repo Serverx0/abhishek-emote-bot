@@ -600,13 +600,13 @@ export default function HomePage() {
         {/* HEADER */}
         <div className="relative mb-10">
           <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400 bg-clip-text text-transparent float-animation">
-            EMOTE BOT
+            Free Fire Emotes
           </h1>
           <p className="text-center text-zinc-400 mt-2 slide-in">
             Send emotes to your team with style ✨
           </p>
           <p className="text-zinc-400 text-center mt-2">
-            Developed by <a className="underline text-pink-500" href="https://wa.me/+8801964753086" target="_blank" rel="noopener noreferrer">Md Jubayer</a>
+            Developed by <a className="underline text-pink-500" href="https://wa.me/+919204866795" target="_blank" rel="noopener noreferrer">Abhishek Sahu</a>
           </p>
         </div>
 
